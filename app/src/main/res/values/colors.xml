@@ -7,4 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="ButtonPrimary">#EE5483</color>
+    <color name="montalvo_pink">#EE5483</color>
+    <color name="indicator_bg">#AB36F4</color>
 </resources>

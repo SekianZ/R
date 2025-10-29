@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- El tamaño puede venir del View (8dp), pero aquí lo fijamos por si acaso -->
+    <size android:width="8dp" android:height="8dp" />
+    <!-- Color base blanco para permitir tint -->
+    <solid android:color="@android:color/white" />
+    <!-- Borde totalmente redondeado (círculo) -->
+    <corners android:radius="999dp" />
+</shape>

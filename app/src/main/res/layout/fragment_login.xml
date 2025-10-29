@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background">
+
+    <!-- Logo Montalvo -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="400dp"
+        android:layout_height="404dp"
+        android:contentDescription="logo montalvo"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_montalvo"
+        app:layout_constraintBottom_toTopOf="@+id/userCircle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Left Line -->
+    <View
+        android:id="@+id/leftLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginEnd="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/userCircle"
+        app:layout_constraintEnd_toStartOf="@+id/userCircle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/userCircle"/>
+
+    <!-- User Circle Icon with Border -->
+    <FrameLayout
+        android:id="@+id/userCircle"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="270dp"
+        android:background="@drawable/border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:contentDescription="usericon"
+            android:tint="@color/white"
+            android:src="@drawable/ic_user"/>
+
+    </FrameLayout>
+
+    <!-- Right Line -->
+    <View
+        android:id="@+id/rightLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="31dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/userCircle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/userCircle"
+        app:layout_constraintTop_toTopOf="@+id/userCircle"/>
+
+    <!-- Username TextField -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="22dp"
+        android:hint="Usuario"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusTopStart="4dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintTextColor="#999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userCircle"
+        app:startIconDrawable="@drawable/ic_user"
+        app:startIconTint="#999999">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usernameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="#000000"
+            android:textSize="17sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Password TextField -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:hint="Password"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:boxCornerRadiusTopEnd="4dp"
+        app:boxCornerRadiusTopStart="4dp"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:endIconMode="password_toggle"
+        app:endIconTint="#999999"
+        app:hintTextColor="#999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameInputLayout"
+        app:startIconDrawable="@drawable/ic_lock"
+        app:startIconTint="#999999">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="#000000"
+            android:textSize="17sp"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- ENTRAR Button -->
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/button_glass_effect"
+        android:elevation="4dp"
+        android:text="ENTRAR"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordInputLayout"/>
+
+    <!-- Remember me Checkbox -->
+    <CheckBox
+        android:id="@+id/checkboxRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:buttonTint="#FFFFFF"
+        android:text="Recuérdame"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/btnEntrar"
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar"/>
+
+    <!-- Forgot Password Text -->
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/checkboxRemember"
+        app:layout_constraintEnd_toEndOf="@+id/btnEntrar"
+        app:layout_constraintTop_toTopOf="@+id/checkboxRemember"/>
+
+    <!-- FACEBOOK Button -->
+    <Button
+        android:id="@+id/btnFacebook"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/button_glass_effect"
+        android:elevation="4dp"
+        android:text="Facebook"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkboxRemember"/>
+
+    <!-- TWITTER Button -->
+    <Button
+        android:id="@+id/btnTwitter"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="22dp"
+        android:background="@drawable/button_glass_effect"
+        android:elevation="4dp"
+        android:text="Twitter"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFacebook"/>
+
+    <!-- Register Text -->
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="¿Aún no te has registrado? REGISTRARSE"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTwitter"/>
+
+    <!-- Separator Line -->
+    <View
+        android:id="@+id/separatorLine"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="24dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

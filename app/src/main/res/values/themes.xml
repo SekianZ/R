@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.ProyectoMontalvoApp" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.ProyectoMontalvoApp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Cambiar de DarkActionBar a NoActionBar -->
+        <item name="colorPrimary">#E91E63</item>
+        <item name="colorPrimaryDark">#E91E63</item>
+        <item name="colorAccent">#03DAC5</item>
+    </style>
 </resources>
