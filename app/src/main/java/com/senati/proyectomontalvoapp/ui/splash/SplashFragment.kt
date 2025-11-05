@@ -6,11 +6,10 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.senati.proyectomontalvoapp.R
+
 class SplashFragment : Fragment() {
 
     override fun onCreateView(

@@ -1,4 +1,4 @@
-package com.senati.proyectomontalvoapp.ui.inicio
+package com.senati.proyectomontalvoapp.ui.Carrito
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.senati.proyectomontalvoapp.R
 
-class InicioFragment : Fragment() {
+class CarritoFragment : Fragment() {
 
     // DrawerLayout
     private lateinit var drawerLayout: DrawerLayout
@@ -23,6 +23,10 @@ class InicioFragment : Fragment() {
     // Header views
     private lateinit var menuIcon: ImageView
     private lateinit var headerLogoImage: ImageView
+
+    // Tabs
+    private lateinit var tabProducto: TextView
+    private lateinit var tabServicio: TextView
 
     // Menu items
     private lateinit var menuServicios: LinearLayout
@@ -35,10 +39,6 @@ class InicioFragment : Fragment() {
     private lateinit var menuContacto: LinearLayout
     private lateinit var menuAyuda: LinearLayout
     private lateinit var menuCerrarSesion: LinearLayout
-
-    // Filter/Search
-    private lateinit var btnSearchFilter: ImageView
-    private lateinit var tvSearchFilter: TextView
 
     // Bottom navigation
     private lateinit var navOffers: LinearLayout
@@ -55,7 +55,7 @@ class InicioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_inicio, container, false)
+        return inflater.inflate(R.layout.fragment_carrito, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -66,8 +66,8 @@ class InicioFragment : Fragment() {
         setupMenuListeners()
         setupBackPressHandler()
 
-        // Marcar Inicio/Ofertas como seleccionado
-        updateBottomNavSelection(0)
+        // Marcar Carrito como seleccionado
+        updateBottomNavSelection(3)
     }
 
     private fun initializeViews(view: View) {
@@ -77,6 +77,10 @@ class InicioFragment : Fragment() {
         // Header
         menuIcon = view.findViewById(R.id.menuIcon)
         headerLogoImage = view.findViewById(R.id.headerLogoImage)
+
+        // Tabs
+        tabProducto = view.findViewById(R.id.tabProducto)
+        tabServicio = view.findViewById(R.id.tabServicio)
 
         // Menu items
         menuServicios = view.findViewById(R.id.menuServicios)
@@ -89,10 +93,6 @@ class InicioFragment : Fragment() {
         menuContacto = view.findViewById(R.id.menuContacto)
         menuAyuda = view.findViewById(R.id.menuAyuda)
         menuCerrarSesion = view.findViewById(R.id.menuCerrarSesion)
-
-        // Filter/Search
-        btnSearchFilter = view.findViewById(R.id.btnSearchFilter)
-        tvSearchFilter = view.findViewById(R.id.tvSearchFilter)
 
         // Bottom navigation
         navOffers = view.findViewById(R.id.navOffers)
@@ -121,18 +121,19 @@ class InicioFragment : Fragment() {
     }
 
     private fun setupListeners() {
+        // Menu icon para abrir drawer
         menuIcon.setOnClickListener {
             openNavigationDrawer()
         }
 
-        btnSearchFilter.setOnClickListener {
-            showFilterDialog()
+        // Tabs
+        tabProducto.setOnClickListener {
+            // Ya estamos en productos
         }
 
-        tvSearchFilter.setOnClickListener {
-            showFilterDialog()
+        tabServicio.setOnClickListener {
+            navigateToServicio()
         }
-
         // Bottom navigation
         navOffers.setOnClickListener {
             navigateToOffers()
@@ -147,7 +148,7 @@ class InicioFragment : Fragment() {
         }
 
         navCart.setOnClickListener {
-            navigateToCart()
+            // Ya estamos en carrito
         }
 
         navLocation.setOnClickListener {
@@ -158,38 +159,47 @@ class InicioFragment : Fragment() {
     private fun setupMenuListeners() {
         menuServicios.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a servicios
         }
 
         menuNotificaciones.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a notificaciones
         }
 
         menuPuntos.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a puntos
         }
 
         menuChat.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a chat
         }
 
         menuTendencias.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a tendencias
         }
 
         menuHairColor.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a hair color cam
         }
 
         menuTarjetas.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a tarjetas
         }
 
         menuContacto.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a contacto
         }
 
         menuAyuda.setOnClickListener {
             closeNavigationDrawer()
+            // TODO: Implementar navegación a ayuda
         }
 
         menuCerrarSesion.setOnClickListener {
@@ -205,23 +215,26 @@ class InicioFragment : Fragment() {
     private fun closeNavigationDrawer() {
         drawerLayout.closeDrawer(GravityCompat.START)
     }
-
-    private fun showFilterDialog() {
-        // TODO: Implementar diálogo de filtros
+    private fun navigateToServicio() {
+        try {
+            findNavController().navigate(R.id.action_carritoFragment_to_carritoServicioFragment)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
-
     private fun navigateToOffers() {
-        // Ya estamos en Inicio/Ofertas
-        updateBottomNavSelection(0)
+        try {
+            findNavController().navigate(R.id.action_carritoFragment_to_inicioFragment)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     private fun navigateToFavorites() {
-        // NAVEGACIÓN REAL usando Navigation Component
         try {
-            findNavController().navigate(R.id.favoritosFragment)
+            findNavController().navigate(R.id.action_carritoFragment_to_favoritosFragment)
         } catch (e: Exception) {
-            // Si no existe la acción, actualizar solo UI
-            updateBottomNavSelection(1)
+            e.printStackTrace()
         }
     }
 
@@ -233,16 +246,8 @@ class InicioFragment : Fragment() {
         }
     }
 
-    private fun navigateToCart() {
-        try {
-            findNavController().navigate(R.id.action_inicioFragment_to_carritoFragment)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
-
     private fun navigateToLocation() {
-        // TODO: Implementar navegación
+        // TODO: Implementar navegación a ubicación
         updateBottomNavSelection(4)
     }
 
@@ -258,20 +263,11 @@ class InicioFragment : Fragment() {
 
         allNavLayouts.forEachIndexed { index, layout ->
             val indicator = layout.findViewById<View>(allIndicators[index])
-            val icon = layout.getChildAt(1) as? ImageView
 
             if (index == position) {
                 indicator?.visibility = View.VISIBLE
-                icon?.imageTintList = ContextCompat.getColorStateList(
-                    requireContext(),
-                    android.R.color.white
-                )
             } else {
                 indicator?.visibility = View.GONE
-                icon?.imageTintList = ContextCompat.getColorStateList(
-                    requireContext(),
-                    android.R.color.white
-                )
             }
         }
     }
@@ -282,6 +278,6 @@ class InicioFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = InicioFragment()
+        fun newInstance() = CarritoFragment()
     }
 }

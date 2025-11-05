@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado seleccionado: fondo blanco -->
+    <item android:state_selected="true">
+        <color android:color="#FFFFFF"/>
+    </item>
+    <!-- Estado presionado: blanco semi-transparente -->
+    <item android:state_pressed="true">
+        <color android:color="#33FFFFFF"/>
+    </item>
+    <!-- Estado normal: transparente -->
+    <item>
+        <color android:color="@android:color/transparent"/>
+    </item>
+</selector>

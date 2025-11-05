@@ -32,6 +32,86 @@
     <fragment
         android:id="@+id/inicioFragment"
         android:name="com.senati.proyectomontalvoapp.ui.inicio.InicioFragment"
-        android:label="Inicio" />
+        android:label="Inicio" >
+        <action
+            android:id="@+id/action_inicioFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_busquedaFragment"
+            app:destination="@id/busquedaFragment" />
+        <action
+            android:id="@+id/action_inicioFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+    </fragment>
+
+    <!-- Favoritos -->
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="com.senati.proyectomontalvoapp.ui.Favoritos.FavoritosFragment"
+        android:label="Favoritos">
+        <action
+            android:id="@+id/action_favoritosFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_favoritosFragment_to_busquedaFragment"
+            app:destination="@id/busquedaFragment" />
+        <action
+            android:id="@+id/action_favoritosFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+    </fragment>
+
+    <!-- Busqueda -->
+    <fragment
+        android:id="@+id/busquedaFragment"
+        android:name="com.senati.proyectomontalvoapp.ui.Busqueda.BusquedaFragment"
+        android:label="Busqueda">
+        <action
+            android:id="@+id/action_busquedaFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_busquedaFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+        <action
+            android:id="@+id/action_busquedaFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+    </fragment>
+
+    <!-- Carrito (Productos) -->
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.senati.proyectomontalvoapp.ui.Carrito.CarritoFragment"
+        android:label="Carrito">
+        <action
+            android:id="@+id/action_carritoFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_carritoFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+        <action
+            android:id="@+id/action_carritoFragment_to_busquedaFragment"
+            app:destination="@id/busquedaFragment" />
+        <action
+            android:id="@+id/action_carritoFragment_to_carritoServicioFragment"
+            app:destination="@id/carritoServicioFragment" />
+    </fragment>
+
+    <!-- Carrito Servicio -->
+    <fragment
+        android:id="@+id/carritoServicioFragment"
+        android:name="com.senati.proyectomontalvoapp.ui.Carrito.CarritoServicioFragment"
+        android:label="Carrito Servicio">
+        <action
+            android:id="@+id/action_carritoServicioFragment_to_inicioFragment"
+            app:destination="@id/inicioFragment" />
+        <action
+            android:id="@+id/action_carritoServicioFragment_to_favoritosFragment"
+            app:destination="@id/favoritosFragment" />
+        <action
+            android:id="@+id/action_carritoServicioFragment_to_busquedaFragment"
+            app:destination="@id/busquedaFragment" />
+        <action
+            android:id="@+id/action_carritoServicioFragment_to_carritoFragment"
+            app:destination="@id/carritoFragment" />
+    </fragment>
 
 </navigation>
